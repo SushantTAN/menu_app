@@ -1,0 +1,31 @@
+.containerCard{
+  cursor: pointer;
+  width: 13rem;
+  height: 15rem;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 16px;
+}
+
+.dish{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+
+.priceContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
