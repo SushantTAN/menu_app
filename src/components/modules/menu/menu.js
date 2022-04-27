@@ -82,6 +82,11 @@ const Menu = () => {
     setRefreshInt(refreshInt + 1);
   }
 
+  const handleClear = () => {
+    localStorage.removeItem("cartList")
+    setCartItems([]);
+  }
+
   return (
     <div>
       <Orders refreshInt={refreshInt} />
@@ -94,6 +99,7 @@ const Menu = () => {
         }
       </div>
       {cartItems.length > 0 && <div className="cartContainer">
+        <div className="clearCart" onClick={handleClear}>Clear Cart</div>
         <div className="cartItemsContainer">
           {
             cartItems.map((item, index) => <div className="cartItem" key={index}>
