@@ -2,13 +2,17 @@ import React from 'react';
 import './Card.css';
 
 const Card = ({ item, index }) => {
-  return(
+  return (
     <div className="containerCard">
       <div className="dish">
-        {item.dishName}
+        {/* <div> */}
+        <img src={item.image} alt={item.name} className="image" />
+        {/* </div> */}
+
       </div>
       <div className="priceContainer">
-        {item.price}&nbsp;Rs.
+        <div className="dishName">{item.dishName}</div>
+        Rs.&nbsp;{item.price}
       </div>
     </div>
   );

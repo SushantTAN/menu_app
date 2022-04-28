@@ -33,14 +33,32 @@ const Menu = () => {
       ));
       localStorage.setItem("total", totalAmount + item.price);
     }
+    else{
+
+      let currentState = [...cartItems];
+      
+      let element = checkArr[0];
+
+      // delete element["count"];
+
+      let index = cartItems.indexOf(element);
+
+      currentState[index] = {
+        ...element,
+        count: element.count + 1,
+      }
+
+      setCartItems(currentState);
+      setTotalAmount(totalAmount + element.price)
+    }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     let cart = localStorage.getItem("cartList");
     let total = localStorage.getItem("total");
 
 
-    if(cart){
+    if (cart) {
       setCartItems(JSON.parse(cart).cartList);
       setTotalAmount(JSON.parse(Number(total)));
     }
@@ -83,8 +101,9 @@ const Menu = () => {
   }
 
   const handleClear = () => {
-    localStorage.removeItem("cartList")
+    localStorage.removeItem("cartList");
     setCartItems([]);
+    setTotalAmount(0);
   }
 
   return (
