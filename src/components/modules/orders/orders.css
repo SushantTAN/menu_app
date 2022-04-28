@@ -12,6 +12,10 @@
   
 }
 
+.noOrders{
+  text-align: center;
+}
+
 .listContainer{
   background-color: rgb(188, 219, 255);
   padding: 10px;

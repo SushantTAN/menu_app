@@ -8,9 +8,12 @@ const Orders = (props) => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
+    
     if (JSON.parse(localStorage.getItem("ordersList"))) {
       setOrders(JSON.parse(localStorage.getItem("ordersList")).ordersList);
+      
     }
+    
   }, [props.refreshInt]);
 
   const handleToggle = () => {
@@ -19,10 +22,12 @@ const Orders = (props) => {
 
   return (
     <div className="ordersContainer">
+     
       <div className="showOrders" onClick={handleToggle}>{show ? "Hide List" : "Show Previous Orders"}</div>
-      {show && <div className="listContainer">
+      {show &&  <div className="listContainer">
+        {console.log(orders)}
         {
-          orders && orders.map((item, index) => <div className="row" key={index}>
+          (orders && (orders.length > 0 )) ? orders.map((item, index) => <div className="row" key={index}>
             <div key={index} className="orderItem">
               {
                 item.cartItems.map((cartItem, itemIndex) => <div key={itemIndex}>
@@ -35,6 +40,7 @@ const Orders = (props) => {
               {item.totalAmount}/-
             </div>
           </div>)
+          : <div className="noOrders">No Previous Orders</div>
         }
       </div>}
     </div>
